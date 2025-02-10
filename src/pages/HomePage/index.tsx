@@ -13,7 +13,7 @@ const HomePage = () => {
         {/* Content*/}
         <div className="flex-1 flex-col px-6 border-x">
           <Navbar />
-          <div className="flex justify-center mt-6">
+          <div className="flex w-screen justify-center mt-6">
             <Hero />
           </div>
         </div>

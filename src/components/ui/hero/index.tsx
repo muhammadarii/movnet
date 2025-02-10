@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
           {movies.map((movie, index) => (
             <div
               key={index}
-              className="relative w-full h-[250px] md:h-[500px] rounded-[20px] overflow-hidden bg-white"
+              className="relative w-full h-[250px] md:h-[500px] rounded-[20px] overflow-hidden"
             >
               <Image
                 src={`https://image.tmdb.org/t/p/w780${movie.backdrop_path}`}

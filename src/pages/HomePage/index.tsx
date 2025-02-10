@@ -1,6 +1,7 @@
-import Infobar from "@/components/Info";
+import Infobar from "@/components/Infobar";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
+import Hero from "@/components/ui/hero";
 import React from "react";
 
 const HomePage = () => {
@@ -12,7 +13,9 @@ const HomePage = () => {
         {/* Content*/}
         <div className="flex-1 flex-col px-6 border-x">
           <Navbar />
-          Landingpage
+          <div className="flex justify-center mt-6">
+            <Hero />
+          </div>
         </div>
 
         <Infobar />

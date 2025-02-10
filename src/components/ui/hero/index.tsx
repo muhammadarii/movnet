@@ -13,12 +13,13 @@ const Hero: React.FC = () => {
 
   const fetchMovies = async () => {
     try {
-      const url = process.env.NEXT_PUBLIC_API_URL || "";
+      const url = `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1`;
       const options = {
         method: "GET",
         headers: {
           accept: "application/json",
-          Authorization: process.env.NEXT_PUBLIC_API_KEY || "",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZDJhMWQ5MDhhZDIyMDVmMGJmYjQzNTdiODVkZDI2MyIsIm5iZiI6MTczOTE5MTgwMi45MjYsInN1YiI6IjY3YTlmNWZhMjRiYmZjNjUyMTkzNzAxYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.nGi5QvPOkNMds6krFIhOzJclF1XR-7SjhZzv6O4AVRo",
         },
       };
 
@@ -54,7 +55,7 @@ const Hero: React.FC = () => {
           {movies.map((movie, index) => (
             <div
               key={index}
-              className="relative w-full h-[250px] md:h-[500px] rounded-[20px] overflow-hidden"
+              className="relative w-full h-[250px] md:h-[500px] rounded-[20px] overflow-hidden bg-white"
             >
               <Image
                 src={`https://image.tmdb.org/t/p/w780${movie.backdrop_path}`}

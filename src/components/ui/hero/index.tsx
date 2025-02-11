@@ -13,13 +13,12 @@ const Hero: React.FC = () => {
 
   const fetchMovies = async () => {
     try {
-      const url = `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1`;
+      const url = `${process.env.NEXT_PUBLIC_API_URL}/3/movie/now_playing?language=en-US&page=1`;
       const options = {
         method: "GET",
         headers: {
           accept: "application/json",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlZDJhMWQ5MDhhZDIyMDVmMGJmYjQzNTdiODVkZDI2MyIsIm5iZiI6MTczOTE5MTgwMi45MjYsInN1YiI6IjY3YTlmNWZhMjRiYmZjNjUyMTkzNzAxYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.nGi5QvPOkNMds6krFIhOzJclF1XR-7SjhZzv6O4AVRo",
+          Authorization: process.env.NEXT_PUBLIC_API_KEY || "",
         },
       };
 

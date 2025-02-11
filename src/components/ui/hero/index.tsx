@@ -1,40 +1,31 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import vector1 from "@/assets/images/Vector 196.png";
-import { Movie } from "@/types/index";
+import { useAppDispatch, useAppSelector } from "@/redux/store";
+import { fetchMovies } from "@/redux/features/movieSlice";
 
-const Hero: React.FC = () => {
-  const [movies, setMovies] = useState<Movie[]>([]);
-
-  const fetchMovies = async () => {
-    try {
-      const url = `${process.env.NEXT_PUBLIC_API_URL}/3/movie/now_playing?language=en-US&page=1`;
-      const options = {
-        method: "GET",
-        headers: {
-          accept: "application/json",
-          Authorization: process.env.NEXT_PUBLIC_API_KEY || "",
-        },
-      };
-
-      const response = await fetch(url, options);
-      if (!response.ok) throw new Error("Failed to fetch movies");
-
-      const data = await response.json();
-      setMovies(data.results);
-    } catch (error) {
-      console.error("Error fetching movies:", error);
-    }
-  };
+const Hero = () => {
+  const dispatch = useAppDispatch();
+  const { movies, status, error } = useAppSelector((state) => state.movie);
 
   useEffect(() => {
-    fetchMovies();
-  }, []);
+    if (status === "idle") {
+      dispatch(fetchMovies());
+    }
+  }, [status, dispatch]);
+
+  if (status === "loading") {
+    return <div>Loading...</div>;
+  }
+
+  if (status === "failed") {
+    return <div>Error: {error}</div>;
+  }
 
   const settings = {
     dots: false,

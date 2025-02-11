@@ -1,10 +1,6 @@
 import { MoviesState } from "@/types";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const API_URL =
-  "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1";
-const API_KEY = "asda";
-
 const initialState: MoviesState = {
   movies: [],
   status: "idle",
@@ -12,13 +8,16 @@ const initialState: MoviesState = {
 };
 
 export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
-  const response = await fetch(API_URL, {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization: API_KEY,
-    },
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/3/movie/popular?language=en-US&page=1`,
+    {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: process.env.NEXT_PUBLIC_API_KEY || "",
+      },
+    }
+  );
   if (!response.ok) throw new Error("Failed to fetch movies");
   return await response.json();
 });

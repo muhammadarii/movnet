@@ -3,8 +3,25 @@ export interface Movie {
   title: string;
 }
 
+export interface PopularMovies {
+  id: number;
+  title: string;
+  overview: string;
+  poster_path: string;
+}
+
 export interface MoviesState {
   movies: Movie[];
   status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
+}
+
+export interface PopularMoviesState {
+  popularMovie: PopularMovies[];
+  status: "idle" | "loading" | "succeeded" | "failed";
+  error: string | null;
+}
+
+export interface WrappersPopularProps {
+  className?: string;
 }

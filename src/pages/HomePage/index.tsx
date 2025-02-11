@@ -1,3 +1,4 @@
+"use client";
 import Infobar from "@/components/Infobar";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
@@ -15,9 +16,10 @@ const HomePage = () => {
         <Navbar />
         <div className="flex flex-col w-screen md:w-full justify-center mt-6">
           <Hero />
-          <WrappersPopuler />
+          <WrappersPopuler className="w-[900px] scrollbar-hide" />
         </div>
       </div>
+
       <Infobar />
     </div>
   );

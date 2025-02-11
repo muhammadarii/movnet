@@ -21,3 +21,7 @@ export interface PopularMoviesState {
   status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
 }
+
+export interface WrappersPopularProps {
+  className?: string;
+}

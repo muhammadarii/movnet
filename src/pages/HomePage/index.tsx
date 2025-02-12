@@ -14,9 +14,9 @@ const HomePage = () => {
       {/* Content */}
       <div className="flex flex-col flex-1 px-6">
         <Navbar />
-        <div className="flex flex-col w-screen md:w-full justify-center mt-6">
+        <div className="flex flex-col w-screen md:w-full justify-center mt-2">
           <Hero />
-          <WrappersPopuler className="w-[900px] scrollbar-hide" />
+          <WrappersPopuler className="w-[900px] scrollbar-hide mt-10" />
         </div>
       </div>
 

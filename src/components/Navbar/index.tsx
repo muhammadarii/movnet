@@ -5,7 +5,7 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     <nav className="top-0 right-0 w-full h-16 flex justify-center items-center z-50">
-      <div className="flex flex-col md:flex-row justify-between items-center w-full max-w-screen-xl gap-4 md:gap-10 lg:gap-[100px]">
+      <div className="flex flex-col md:flex-row  py-4 justify-between items-center w-full max-w-screen-xl gap-4 md:gap-10 lg:gap-[100px]">
         {/* Navigasi Menu */}
         <div className="flex-row gap-6 md:gap-10 hidden md:flex">
           <Link
